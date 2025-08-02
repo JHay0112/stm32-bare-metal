@@ -3,33 +3,36 @@ This repository contains the source files for programming an STM32 F070RB
 without the use of the STM32 Cube toolchain. This project nominally follows
 along with Vivonomicon's tutorial. (See further reading section.)
 
-The current program (core.S) writes the value `0xDEADBEEF` to r7, and repeatedly
-increments r0. This can be verified by running the program and using a debugger
-such as gdb to inspect the register values.
+The current program (main.c) repeatedly increments a value which may be
+inspected by GDB. A complete vector table (with most entries pointing to a
+default interrupt handler) is loaded as well and should be inspectable with GDB.
 
 ## Build & Debug
-The current version of the software is built by running the following commands
-in a bash terminal.
+The current version of the software is built using meson and may be compiled to
+`main.elf` in the build directory of your choosing with the following commands.
 ```bash
-arm-none-eabi-gcc -x assembler-with-cpp -c -O0 -mcpu=cortex-m0 -mthumb -Wall core.S -o core.o
-arm-none-eabi-gcc core.o -mcpu=cortex-m0 -mthumb -Wall --specs=nosys.specs -nostdlib -lgcc -T./stm32f070rb.ld -o main.elf
+meson setup <build-dir> --cross-file conf/<cross-file>
+cd <build-dir>
+meson compile
 ```
 The chip can be debugged by running the following commands in separate bash
 terminals. I have chosen to use the open source ST Link utility recommended by
 Vivonomicon. (See link in further reading section.)
 ```bash
 st-util
-arm-none-eabi-gdb main.elf
+arm-none-eabi-gdb <build-dir>/main.elf
 ```
 (As a reminder to myself, `st-util` may be sent to the background with Ctrl-Z
-and `bg`. This permits the use of one terminal, though mixes up outputs from gdb
+and `bg`. This permits the use of one terminal, though mixes up outputs from GDB
 `pgrep st-util` may be used to get its pid to kill it when finished.)
 
 ## Next Steps
 Other than following the Vivonomicon tutorial, I'd also like to explore:
  - Simulating the code execution in a framework such as Renode.
  - Building some peripheral drivers from scratch.
- - Scheduling?
+ - DIY multithreading.
+ - Unit testing.
+ - Switch away from meson to a more embedded friendly build chain.
 
 ## Further Reading
  - [Vivonomicon "Bare Metal" STM32 article
@@ -37,4 +40,5 @@ Other than following the Vivonomicon tutorial, I'd also like to explore:
  - [Open source ST Link utilities](https://github.com/stlink-org/stlink)
  - [STM32 F070RB Product
    Page.](https://www.st.com/en/microcontrollers-microprocessors/stm32f070rb.html)
- - [Renode](https://renode.io/)
+ - [Meson Build System.](https://mesonbuild.com/)
+ - [Renode.](https://renode.io/)
