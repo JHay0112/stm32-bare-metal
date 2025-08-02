@@ -7,6 +7,17 @@ The current program (main.c) repeatedly increments a value which may be
 inspected by GDB. A complete vector table (with most entries pointing to a
 default interrupt handler) is loaded as well and should be inspectable with GDB.
 
+## Directories
+A map of the directories present in the repository is shown below.
+```
+stm32-bare-metal/           # Root
+├── conf/                   # Configuration files (Meson cross compile conf.)
+├── core/                   # Target related source code
+├── sim/                    # Simulations
+│   └── renode/             # Renode models and configuration
+└── src/                    # Application related source code
+```
+
 ## Build & Debug
 The current version of the software is built using meson and may be compiled to
 `main.elf` in the build directory of your choosing with the following commands.
@@ -25,6 +36,16 @@ arm-none-eabi-gdb <build-dir>/main.elf
 (As a reminder to myself, `st-util` may be sent to the background with Ctrl-Z
 and `bg`. This permits the use of one terminal, though mixes up outputs from GDB
 `pgrep st-util` may be used to get its pid to kill it when finished.)
+
+## Simulation
+A rudimentary Renode simulation is provided in `sim/renode`. To simulate the
+software, follow the build instructions and then use the script
+`sim/renode/stm32f070rb_init.resc` in the Renode shell. The command to load the
+script in the Renode shell follows.
+```
+include @sim/renode/stm32f070rb_init.resc
+```
+(Assuming that the Renode shell was started in the project's root directory.)
 
 ## Next Steps
 Other than following the Vivonomicon tutorial, I'd also like to explore:

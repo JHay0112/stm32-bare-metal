@@ -1,0 +1,19 @@
+:name: STM32F070RB initialisation script
+:author: J. L. Hay
+
+
+using sysbus
+
+
+mach create "STM32F070RB"
+machine LoadPlatformDescription @sims/renode_stm32f070rb_model.repl
+
+
+macro reset
+"""
+sysbus LoadELF @build/main.elf
+cpu PC `sysbus ReadDoubleWord 0x08000004`
+cpu SP `sysbus ReadDoubleWord 0x08000000`
+"""
+
+runMacro $reset

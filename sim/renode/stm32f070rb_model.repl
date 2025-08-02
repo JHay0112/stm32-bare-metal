@@ -1,0 +1,25 @@
+// Renode Model of the STM32F070RB
+//
+// Author: J. L. Hay
+
+
+// Memory
+ram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x8000
+flash: Memory.MappedMemory @ sysbus 0x08000000
+    size: 0x20000
+
+
+// NVIC
+nvic: IRQControllers.NVIC @ sysbus 0xE000E100
+    size: 0x04EF
+
+
+// CPU
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m0"
+    nvic: nvic
+
+
+// TODO:
+//  - Peripherals as needed
