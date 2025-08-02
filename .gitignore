@@ -1,0 +1,11 @@
+# Version control ignored files
+#
+# Author: J. L. Hay
+
+
+# Generic build directory
+build
+
+# C build outputs
+*.o
+*.elf
