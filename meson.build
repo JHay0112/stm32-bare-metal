@@ -28,22 +28,23 @@ c_link_args = [
 
 # Recursive source file loading
 
-proj_src = []
+proj_c = []
 
 subdir('core')
-subdir('src')
+proj_c += core_c
 
-proj_src += core
-proj_src += src
+subdir('src')
+proj_c += src_c
 
 
 # Targets
 
 # Executable for upload or debugging
-main = executable('main', 
-    proj_src,
+executable('main', 
+    proj_c,
     name_suffix: 'elf',
     c_args: c_args,
+    include_directories: include_directories('core', 'src'),
     link_args: [c_link_args, '-T@0@/@1@'.format(meson.current_source_dir(), link_script[0])]
 )
 

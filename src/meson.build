@@ -1,3 +1,3 @@
-src = files(
+src_c = files(
     'main.c'
 )
