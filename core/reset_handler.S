@@ -58,7 +58,7 @@ reset_handler:
     reset_bss_loop:
         // Check if all data zeroed out, else continue
         CMP  r1, r2
-        B    reset_bss
+        BCC  reset_bss
 
     
     // Start main method, to be linked at compile time
