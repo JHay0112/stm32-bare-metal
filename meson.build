@@ -30,8 +30,8 @@ c_link_args = [
 
 proj_c = []
 
-subdir('core')
-proj_c += core_c
+subdir('sys')
+proj_c += sys_c
 
 subdir('src')
 proj_c += src_c

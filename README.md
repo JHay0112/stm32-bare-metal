@@ -12,7 +12,7 @@ A map of the directories present in the repository is shown below.
 ```
 stm32-bare-metal/           # Root
 ├── conf/                   # Configuration files (Meson cross compile conf.)
-├── core/                   # Target related source code
+├── sys/                    # Target system source code and hardware abstraction
 ├── sim/                    # Simulations
 │   └── renode/             # Renode models and configuration
 └── src/                    # Application related source code

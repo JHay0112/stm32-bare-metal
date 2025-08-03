@@ -1,0 +1,24 @@
+/**
+ * STM32F070RB Memory Map.
+ * This is not intended for direct use in application code. (i.e. src.)
+ *
+ * Author: J. L. Hay
+ */
+
+#ifndef SYS_MEMORY_MAP_H
+#define SYS_MEMORY_MAP_H
+
+
+#include <stdint.h>
+
+
+typedef uint32_t *mmap_addr;
+typedef uint32_t  mmap_offset;
+
+
+// RCC: Reset and Clock Control
+static const mmap_addr ADDR_RCC = (mmap_addr) 0x40021000;
+static const mmap_offset OFFSET_RCC_AHBENR = (mmap_offset) 0x14;
+
+
+#endif 
