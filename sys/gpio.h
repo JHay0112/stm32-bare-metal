@@ -10,6 +10,7 @@
 
 
 typedef enum {
+    GPIOA,
     GPIOB
 } gpio_bank_id;
 

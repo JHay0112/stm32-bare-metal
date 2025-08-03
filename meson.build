@@ -44,7 +44,7 @@ executable('main',
     proj_c,
     name_suffix: 'elf',
     c_args: c_args,
-    include_directories: include_directories('core', 'src'),
+    include_directories: include_directories('sys', 'src'),
     link_args: [c_link_args, '-T@0@/@1@'.format(meson.current_source_dir(), link_script[0])]
 )
 

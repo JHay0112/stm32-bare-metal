@@ -10,10 +10,14 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "gpio.h"
+
 
 int main(void)
 {
     uint32_t val = 0;
+
+    gpio_init(GPIOA);
 
     while (true) {
         val += 1;

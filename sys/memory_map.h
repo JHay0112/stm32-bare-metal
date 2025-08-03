@@ -18,7 +18,16 @@ typedef uint32_t  mmap_offset;
 
 // RCC: Reset and Clock Control
 static const mmap_addr ADDR_RCC = (mmap_addr) 0x40021000;
-static const mmap_offset OFFSET_RCC_AHBENR = (mmap_offset) 0x14;
+static const mmap_offset OFFSET_RCC_AHBENR = (mmap_offset) 5;
+
+
+// GPIO: General Purpose Input and Output
+static const mmap_addr ADDR_GPIOA = (mmap_addr) 0x48000000;
+static const mmap_addr ADDR_GPIOB = (mmap_addr) 0x48000400;
+
+static const mmap_offset OFFSET_GPIO_MODER = (mmap_offset) 0;
+static const mmap_offset OFFSET_GPIO_OTYPER = (mmap_offset) 1;
+static const mmap_offset OFFSET_GPIO_ODR = (mmap_offset) 5;
 
 
 #endif 
