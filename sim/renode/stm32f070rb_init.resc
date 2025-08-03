@@ -6,7 +6,8 @@ using sysbus
 
 
 mach create "STM32F070RB"
-machine LoadPlatformDescription @sims/renode_stm32f070rb_model.repl
+machine LoadPlatformDescription @sim/renode/stm32f070rb_model.repl
+machine StartGdbServer 4141
 
 
 macro reset

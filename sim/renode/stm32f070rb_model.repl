@@ -12,7 +12,6 @@ flash: Memory.MappedMemory @ sysbus 0x08000000
 
 // NVIC
 nvic: IRQControllers.NVIC @ sysbus 0xE000E100
-    size: 0x04EF
 
 
 // CPU
