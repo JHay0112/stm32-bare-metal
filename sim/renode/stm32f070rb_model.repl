@@ -20,5 +20,12 @@ cpu: CPU.CortexM @ sysbus
     nvic: nvic
 
 
+// GPIO
+gpioa: GPIOPort.STM32_GPIOPort @ sysbus <0x48000000, +0x400>
+    modeResetValue: 0x28000000
+    pullUpPullDownResetValue: 0x24000000
+    numberOfAFs: 8
+
+
 // TODO:
 //  - Peripherals as needed
