@@ -9,6 +9,9 @@
 #define SYS_GPIO_H
 
 
+#define GPIO_NUM_BANKS 2
+
+
 typedef enum {
     GPIOA,
     GPIOB
