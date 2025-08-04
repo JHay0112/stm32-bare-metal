@@ -18,6 +18,7 @@ int main(void)
     uint32_t val = 0;
 
     gpio_init(GPIOA);
+    gpio_set(GPIOA, 5, 1);
 
     while (true) {
         val += 1;
