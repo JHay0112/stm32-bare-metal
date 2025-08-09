@@ -24,7 +24,7 @@ SYS_METADATA_SET_STR(AUTHOR, 12, "J. L. Hay");
 static volatile gpio_value led_val = 0;
 
 
-__attribute__((used)) void systick_handler(void)
+void systick_handler(void)
 {
     if (led_val == 0)
     {
