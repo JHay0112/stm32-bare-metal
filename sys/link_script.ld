@@ -36,6 +36,13 @@ SECTIONS
         . = ALIGN(4);
     } >FLASH
 
+    /* Metadata, for debugging */
+    .metadata : {
+        . = ALIGN(4);
+        KEEP (*(.metadata))
+        . = ALIGN(4);
+    } >FLASH
+
     /* Program text (code) */
     .text :
     {

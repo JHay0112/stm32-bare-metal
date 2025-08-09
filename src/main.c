@@ -10,7 +10,13 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "metadata.h"
+
 #include "gpio.h"
+
+
+SYS_METADATA_SET_STR(VERSION, 8, "1.0.0");
+SYS_METADATA_SET_STR(AUTHOR, 12, "J. L. Hay");
 
 
 int main(void)
