@@ -6,6 +6,9 @@
 # Generic build directory
 build
 
+# Cached information
+.cache
+
 # C build outputs
 *.o
 *.elf
