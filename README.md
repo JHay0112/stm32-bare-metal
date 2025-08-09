@@ -18,10 +18,11 @@ A map of the directories present in the repository is shown below.
 ```
 stm32-bare-metal/           # Root
 ├── conf/                   # Configuration files (Meson cross compile conf.)
-├── sys/                    # Target system source code and hardware abstraction
+├── docs/                   # Additional notes and information
 ├── sim/                    # Simulations
 │   └── renode/             # Renode models and configuration
-└── src/                    # Application related source code
+├── src/                    # Application related source code
+└── sys/                    # Target system source code and hardware abstraction
 ```
 
 ## Build & Debug
@@ -61,7 +62,10 @@ Other than following the Vivonomicon tutorial, I'd also like to explore:
  - Unit testing.
  - Switch away from meson to a more embedded friendly build chain.
 
-## Further Reading
+## Further Documentation
+ - [VSCodium Configuration](./docs/vscodium.md)
+
+## Further Resources
  - [Vivonomicon "Bare Metal" STM32 article
    series.](https://vivonomicon.com/2018/04/02/bare-metal-stm32-programming-part-1-hello-arm/)
  - [Open source ST Link utilities](https://github.com/stlink-org/stlink)
