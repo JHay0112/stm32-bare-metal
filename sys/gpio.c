@@ -63,7 +63,7 @@ gpio_status gpio_set(gpio_bank_id bank_id, gpio_pin_id pin_id, gpio_value val)
     // Set pin as output
     *moder |= (0b01 << (2 * pin_id));
     // Set pin value
-    *odr |= ((val & 0b1) << pin_id);
+    *odr = (val << pin_id);
 
     return GOOD;
 }

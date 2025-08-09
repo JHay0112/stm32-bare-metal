@@ -12,11 +12,33 @@
 
 #include "metadata.h"
 
+#include "clock.h"
+#include "timer.h"
 #include "gpio.h"
 
 
 SYS_METADATA_SET_STR(VERSION, 8, "1.0.0");
 SYS_METADATA_SET_STR(AUTHOR, 12, "J. L. Hay");
+
+
+static volatile gpio_value led_val = 0;
+
+
+__attribute__((used)) void systick_handler(void)
+{
+    if (led_val == 0)
+    {
+        led_val = 1;
+    }
+    else 
+    {
+        led_val = 0;
+    }
+
+    gpio_set(GPIOA, 5, led_val);
+
+    timer_clear(TIMER_SYSTICK);
+}
 
 
 int main(void)
@@ -25,6 +47,10 @@ int main(void)
 
     gpio_init(GPIOA);
     gpio_set(GPIOA, 5, 1);
+
+    uint32_t systick_period = clock_get_freq() / 10;
+    timer_set(TIMER_SYSTICK, systick_period);
+    timer_init(TIMER_SYSTICK);
 
     while (true) {
         val += 1;

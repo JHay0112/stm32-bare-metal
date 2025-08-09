@@ -6,6 +6,8 @@
 sys_c = files(
     'reset_handler.S', 
     'vector_table.S',
+    'clock.c',
+    'timer.c',
     'gpio.c'
 )
 

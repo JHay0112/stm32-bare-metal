@@ -4,14 +4,16 @@ without the use of the STM32 Cube toolchain. This project nominally follows
 along with Vivonomicon's tutorial. (See further reading section.)
 
 The current program (main.c) repeatedly increments a value which may be
-inspected by GDB. It also sets the GPIO PA5 which is associated with the user
-LED on the NUCLEO board for the STM32 F070RB. A complete vector table (with most
-entries pointing to a default interrupt handler) is loaded as well and should be
-inspectable with GDB.
+inspected by GDB. It also flashes GPIO PA5 which is associated with the user LED
+on the NUCLEO board for the STM32 F070RB using the SysTick timer (built in to
+the Cortex-M CPU). A complete vector table (with most entries pointing to a
+default interrupt handler) is loaded as well and should be inspectable with GDB
+or nm.
 
 A Renode machine description is provided in `sim/renode` that can be used to
 simulate the code and peripherals. A GDB server is automatically started on port
-4141 when simulating.
+4141 when simulating. Currently, the Renode machine does not simulate the
+Systick timer.
 
 ## Directories
 A map of the directories present in the repository is shown below.
