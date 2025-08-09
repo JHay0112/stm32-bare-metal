@@ -11,7 +11,7 @@
 
 
 #define SYS_METADATA_SET_STR(name, len, val) \
-    __attribute__((unused, section (".metadata"))) \
+    __attribute__((used, section (".metadata"))) \
     static const char name[len] = val
 
 
