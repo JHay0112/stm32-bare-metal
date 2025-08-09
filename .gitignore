@@ -9,6 +9,9 @@ build
 # Cached information
 .cache
 
+# VSCode/VSCodium configuration
+.vscode
+
 # C build outputs
 *.o
 *.elf
