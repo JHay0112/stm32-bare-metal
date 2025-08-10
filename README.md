@@ -29,7 +29,7 @@ stm32-bare-metal/           # Root
 
 ## Build & Debug
 The current version of the software is built using meson and may be compiled to
-`main.elf` in the build directory of your choosing with the following commands.
+`debug.elf` in the build directory of your choosing with the following commands.
 ```bash
 meson setup <build-dir> --cross-file conf/<cross-file>
 cd <build-dir>
@@ -40,7 +40,7 @@ terminals. I have chosen to use the open source ST Link utility recommended by
 Vivonomicon. (See link in further reading section.)
 ```bash
 st-util
-arm-none-eabi-gdb <build-dir>/main.elf
+arm-none-eabi-gdb <build-dir>/debug.elf
 ```
 (As a reminder to myself, `st-util` may be sent to the background with Ctrl-Z
 and `bg`. This permits the use of one terminal, though mixes up outputs from GDB

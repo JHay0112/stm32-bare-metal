@@ -17,21 +17,20 @@ physical and simulated hardware. The following settings should be included in
 {
     "version": "0.2.0",
     "configurations": [
-
         {
             "name": "Physical Debug",
             "cwd": "${workspaceFolder}",
-            "executable": "./build/main.elf",
+            "executable": "./build/debug.elf",
             "request": "launch",
             "type": "cortex-debug",
             "runToEntryPoint": "main",
-            "servertype": "stutil"
+            "servertype": "stutil",
+            "preLaunchTask": "Meson: Build debug:executable"
         },
-
         {
             "name": "Renode Debug",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/build/main.elf",
+            "executable": "${workspaceRoot}/build/debug.elf",
             "device": "STM32F070RB",
             "request": "launch",
             "type": "cortex-debug",
@@ -39,7 +38,8 @@ physical and simulated hardware. The following settings should be included in
             "servertype": "external",
             "gdbTarget": "localhost:4141",
             "toolchainPrefix": "arm-none-eabi-",
-            "gdbPath": "arm-none-eabi-gdb"
+            "gdbPath": "arm-none-eabi-gdb",
+            "preLaunchTask": "Meson: Build debug:executable"
         }
     ]
 }

@@ -12,7 +12,7 @@ machine StartGdbServer 4141
 
 macro reset
 """
-sysbus LoadELF @build/main.elf
+sysbus LoadELF @build/debug.elf
 cpu PC `sysbus ReadDoubleWord 0x08000004`
 cpu SP `sysbus ReadDoubleWord 0x08000000`
 """
