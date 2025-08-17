@@ -28,23 +28,13 @@ stm32-bare-metal/           # Root
 ```
 
 ## Build & Debug
-The current version of the software is built using meson and may be compiled to
-`debug.elf` in the build directory of your choosing with the following commands.
+the current version of this project is being built with the experimental [nobuild](https://github.com/tsoding/nob.h) c build "system", the idea is all you need to build the project is a c complier. to configure the project all you need to do is
 ```bash
-meson setup <build-dir> --cross-file conf/<cross-file>
-cd <build-dir>
-meson compile
+> gcc nob.c -o nob
+> ./nob
 ```
-The chip can be debugged by running the following commands in separate bash
-terminals. I have chosen to use the open source ST Link utility recommended by
-Vivonomicon. (See link in further reading section.)
-```bash
-st-util
-arm-none-eabi-gdb <build-dir>/debug.elf
-```
-(As a reminder to myself, `st-util` may be sent to the background with Ctrl-Z
-and `bg`. This permits the use of one terminal, though mixes up outputs from GDB
-`pgrep st-util` may be used to get its pid to kill it when finished.)
+
+The program output will be within the `build/` folder defined in `nob.c`
 
 ## Simulation
 A rudimentary Renode simulation is provided in `sim/renode`. To simulate the
