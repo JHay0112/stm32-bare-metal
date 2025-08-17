@@ -16,4 +16,4 @@ build
 *.o
 *.elf
 
-nob.*
+nob.exe
