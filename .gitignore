@@ -15,3 +15,5 @@ build
 # C build outputs
 *.o
 *.elf
+
+nob.*
