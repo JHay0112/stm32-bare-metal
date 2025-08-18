@@ -55,13 +55,24 @@ include @sim/renode/stm32f070rb_init.resc
 ```
 (Assuming that the Renode shell was started in the project's root directory.)
 
+## Branches
+At the time of writing, there is a branch of the repository `exp/nob` that
+demonstrates the ["nob" build system](https://github.com/tsoding/nob.h) as an
+alternative to Meson. The objective of nob is to provide a build system for C
+projects that requires only the C compiler as a dependency. This branch was
+provided by [@sirlilpanda](https://github.com/sirlilpanda)
+([website](https://sirlilpanda.studio/)).  
+
 ## Next Steps
 Other than following the Vivonomicon tutorial, I'd also like to explore:
  - Simulating the code execution in a framework such as Renode.
  - Building some peripheral drivers from scratch.
+ - Unifying the hardware description for peripheral drivers and simulation by
+   using device trees.
  - DIY multithreading.
  - Unit testing.
- - Switch away from meson to a more embedded friendly build chain.
+ - Switch away from meson to a more embedded friendly build chain. See `exp/nob`
+   for nob-based alternative. (More information in the branches section.)
 
 ## Further Documentation
  - [VSCodium Configuration](./docs/vscodium.md)
