@@ -11,7 +11,10 @@ flash: Memory.MappedMemory @ sysbus 0x08000000
 
 
 // NVIC
-nvic: IRQControllers.NVIC @ sysbus 0xE000E100
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    priorityMask: 0xF0
+    systickFrequency: 8000000
+    IRQ -> cpu@0
 
 
 // CPU

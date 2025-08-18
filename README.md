@@ -12,8 +12,7 @@ or nm.
 
 A Renode machine description is provided in `sim/renode` that can be used to
 simulate the code and peripherals. A GDB server is automatically started on port
-4141 when simulating. Currently, the Renode machine does not simulate the
-Systick timer.
+4141 when simulating.
 
 ## Directories
 A map of the directories present in the repository is shown below.
