@@ -24,6 +24,8 @@ stm32-bare-metal/           # Root
 │   └── renode/             # Renode models and configuration
 ├── src/                    # Application related source code
 └── sys/                    # Target system source code and hardware abstraction
+    ├── hal/                # Headers for hardware abstraction
+    └── target/             # Target system source code, includes HAL code
 ```
 
 ## Build & Debug
@@ -34,6 +36,15 @@ meson setup <build-dir> --cross-file conf/<cross-file>
 cd <build-dir>
 meson compile
 ```
+On an x86 Linux host with a gcc toolchain (the only supported host at the time
+of writing) and `build` as the selected directory, these commands become the
+following.
+```bash
+meson setup build --cross-file conf/cross_linux_x86.ini
+cd build
+meson compile
+```
+
 The chip can be debugged by running the following commands in separate bash
 terminals. I have chosen to use the open source ST Link utility recommended by
 Vivonomicon. (See link in further reading section.)
