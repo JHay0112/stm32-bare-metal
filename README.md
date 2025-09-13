@@ -79,7 +79,7 @@ Other than following the Vivonomicon tutorial, I'd also like to explore:
  - Simulating the code execution in a framework such as Renode.
  - Building some peripheral drivers from scratch.
  - Unifying the hardware description for peripheral drivers and simulation by
-   using device trees.
+   using device trees (see NXP application note in further reading).
  - DIY multithreading.
  - Unit testing.
  - Switch away from meson to a more embedded friendly build chain. See `exp/nob`
@@ -91,8 +91,9 @@ Other than following the Vivonomicon tutorial, I'd also like to explore:
 ## Further Resources
  - [Vivonomicon "Bare Metal" STM32 article
    series.](https://vivonomicon.com/2018/04/02/bare-metal-stm32-programming-part-1-hello-arm/)
- - [Open source ST Link utilities](https://github.com/stlink-org/stlink)
+ - [Open source ST Link utilities.](https://github.com/stlink-org/stlink)
  - [STM32 F070RB Product
    Page.](https://www.st.com/en/microcontrollers-microprocessors/stm32f070rb.html)
  - [Meson Build System.](https://mesonbuild.com/)
  - [Renode.](https://renode.io/)
+ - [NXP Application Note on Device Trees](https://www.nxp.com/docs/en/application-note/AN5125.pdf)
