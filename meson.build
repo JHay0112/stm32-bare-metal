@@ -9,6 +9,7 @@ project('STM32 F070RB Bare Metal', 'c')
 
 
 target = 'target/stm32f070rb'
+os = 'SYS_OS'
 
 
 c_args = [
@@ -41,6 +42,13 @@ subdir('src')
 proj_c += src_c
 
 inc_dir = include_directories('sys', 'src')
+
+
+# OS flag
+
+if os == 'SYS_OS'
+    c_args += '-DSYS_OS_ENABLED=1'
+endif
 
 
 # Targets
