@@ -4,11 +4,11 @@
 
 
 sys_c = files(
-    'reset_handler.S', 
-    'vector_table.S',
-    'clock.c',
-    'timer.c',
-    'gpio.c'
+    target / 'reset_handler.S', 
+    target / 'vector_table.S',
+    target / 'clock.c',
+    target / 'timer.c',
+    target / 'gpio.c'
 )
 
-link_script = files('link_script.ld')
+link_script = meson.current_source_dir() / target / 'link_script.ld'

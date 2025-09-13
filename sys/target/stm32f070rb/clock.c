@@ -5,7 +5,7 @@
  */
 
 
-#include "clock.h"
+#include "hal/clock.h"
 
 
 // Default internal oscillator: 8 MHz.

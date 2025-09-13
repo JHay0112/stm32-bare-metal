@@ -7,9 +7,9 @@
 
 #include <stdbool.h>
 
-#include "timer.h"
+#include "hal/timer.h"
 
-#include "memory_map.h"
+#include "target/stm32f070rb/memory_map.h"
 
 
 static inline bool timer_is_supported(timer_id id)

@@ -10,11 +10,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "metadata.h"
+#include "hal/metadata.h"
 
-#include "clock.h"
-#include "timer.h"
-#include "gpio.h"
+#include "hal/clock.h"
+#include "hal/timer.h"
+#include "hal/gpio.h"
 
 
 SYS_METADATA_SET_STR(VERSION, 8, "1.0.0");
@@ -22,7 +22,6 @@ SYS_METADATA_SET_STR(AUTHOR, 12, "J. L. Hay");
 
 
 static volatile gpio_value led_val = 0;
-
 
 void systick_handler(void)
 {

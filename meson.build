@@ -8,6 +8,9 @@
 project('STM32 F070RB Bare Metal', 'c')
 
 
+target = 'target/stm32f070rb'
+
+
 c_args = [
     '-mcpu=cortex-m0',
     '-mthumb',
@@ -32,10 +35,12 @@ proj_c = []
 
 subdir('sys')
 proj_c += sys_c
-c_link_args += '-T@0@/@1@'.format(meson.current_source_dir(), link_script[0])
+c_link_args += '-T' + link_script
 
 subdir('src')
 proj_c += src_c
+
+inc_dir = include_directories('sys', 'src')
 
 
 # Targets
@@ -45,7 +50,7 @@ executable('debug',
     proj_c,
     name_suffix: 'elf',
     c_args: [c_args, '-g'],
-    include_directories: include_directories('sys', 'src'),
+    include_directories: inc_dir,
     link_args: c_link_args
 )
 
@@ -54,7 +59,7 @@ executable('app',
     proj_c,
     name_suffix: 'elf',
     c_args: [c_args, '-O3'],
-    include_directories: include_directories('sys', 'src'),
+    include_directories: inc_dir,
     link_args: c_link_args
 )
 

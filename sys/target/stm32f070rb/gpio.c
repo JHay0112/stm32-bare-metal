@@ -7,9 +7,9 @@
 
 #include <stdbool.h>
 
-#include "gpio.h"
+#include "hal/gpio.h"
 
-#include "memory_map.h"
+#include "target/stm32f070rb/memory_map.h"
 
 
 static const mmap_addr BANK_ADDR_MAP[GPIO_NUM_BANKS] = 
