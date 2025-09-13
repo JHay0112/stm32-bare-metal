@@ -52,3 +52,54 @@ This is achieved by running the following command in the Renode shell.
 ```
 include @sim/renode/stm32f070rb_init.resc
 ```
+
+Alternatively, Renode may be automatically initialised by replacing the
+`preLaunchTask` with a custom task "Build Program and Start Renode". The
+following must be included in `.vscode/tasks.json`.
+
+```json
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Renode",
+			"type": "shell",
+			"isBackground": true,
+			"command": "renode",
+			"args": [
+				"--console",
+				"${workspaceFolder}/sim/renode/stm32f070rb_init.resc"
+			],
+			"problemMatcher": [
+				{
+					"pattern": [
+						{
+							"regexp": ".",
+							"file": 1,
+							"line": 1,
+							"column": 1,
+							"message": 1
+						}
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": { 
+							"regexp": "." 
+						},
+						"endsPattern": { 
+							"regexp": "." 
+						}
+					},
+				}
+			]
+		},
+		{
+			"label": "Build Program and Start Renode",
+			"dependsOn": [
+				"Start Renode",
+				"Meson: Build debug:executable"
+			]
+		}
+	]
+}
+```
