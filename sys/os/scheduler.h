@@ -1,5 +1,5 @@
 /**
- * Hardware interface for system tick operations. Expects an "ARMish" model of a
+ * Hardware interface for scheduler operations. Expects an "ARMish" model of a
  * highest priority periodic tick for OS operations, and a lowest priority
  * handler for deferring tasks e.g. context switching.
  *
@@ -11,21 +11,29 @@
  */
 
 #if SYS_OS_ENABLED
-#ifndef SYS_OS_SYSTICK_INTERFACE_H
-#define SYS_OS_SYSTICK_INTERFACE_H
+#ifndef SYS_OS_SCHEDULER_H
+#define SYS_OS_SCHEDULER_H
 
 
 #include <stdint.h>
 
 
-void os_target_register_tick_handler(void (*tick_handler)(void));
+#define OS_SCHEDULER_NUM_THREADS 2
+#define OS_SCHEDULER_STACK_SIZE 256
 
-void os_target_register_defer_handler(void (*defer_handler)(void));
+
+void os_tick_handler(void);
+
+void os_context_switch_handler(void);
 
 
 void os_set_tick(uint32_t tick_rate);
 
 void os_enable_tick(void);
+
+void os_scheduler_add (void (*handler)(void));
+
+void os_scheduler_init(void);
 
 
 #endif

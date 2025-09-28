@@ -11,10 +11,10 @@ sys_c = files(
     target / 'gpio.c'
 )
 
-if os == 'OS_SYS'
-    sys_c += files(
-        target / 'systick_interface.c'
-    )
+if os == 'SYS_OS'
+sys_c += files(
+    target / 'scheduler.c'
+)
 endif
 
 link_script = meson.current_source_dir() / target / 'link_script.ld'

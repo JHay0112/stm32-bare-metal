@@ -16,7 +16,6 @@ c_args = [
     '-mcpu=cortex-m0',
     '-mthumb',
     '-Wall',
-    '-Werror',
     '--specs=nosys.specs'
 ]
 

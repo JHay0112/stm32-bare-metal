@@ -12,48 +12,48 @@
 
 #include "hal/metadata.h"
 
-#include "hal/clock.h"
-#include "hal/timer.h"
 #include "hal/gpio.h"
+
+#include "os/scheduler.h"
 
 
 SYS_METADATA_SET_STR(VERSION, 8, "1.0.0");
 SYS_METADATA_SET_STR(AUTHOR, 12, "J. L. Hay");
 
 
+static volatile uint32_t counter_val = 0;
 static volatile gpio_value led_val = 0;
 
-void systick_handler(void)
+
+void gpio_thread(void)
 {
-    if (led_val == 0)
+    while (1)
     {
-        led_val = 1;
+        gpio_set(GPIOA, 5, led_val);
+
+        if (led_val == 0)
+        {
+            led_val = 1;
+        }
+        else 
+        {
+            led_val = 0;
+        }
     }
-    else 
+}
+
+void math_thread(void)
+{
+    while (1)
     {
-        led_val = 0;
+        counter_val += 1;
     }
-
-    gpio_set(GPIOA, 5, led_val);
-
-    timer_clear(TIMER_SYSTICK);
 }
 
 
 int main(void)
 {
-    uint32_t val = 0;
-
-    gpio_init(GPIOA);
-    gpio_set(GPIOA, 5, 1);
-
-    uint32_t systick_period = clock_get_freq() / 10;
-    timer_set(TIMER_SYSTICK, systick_period);
-    timer_init(TIMER_SYSTICK);
-
-    while (true) {
-        val += 1;
-    }
-
-    return 0;
+    os_scheduler_add(gpio_thread);
+    os_scheduler_add(math_thread);
+    os_scheduler_init();
 }

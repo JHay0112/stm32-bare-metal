@@ -16,6 +16,9 @@ typedef uint32_t *mmap_addr;
 typedef uint32_t  mmap_offset;
 
 
+// Cortex-M system control
+static const mmap_addr ADDR_SCB_ICSR = (mmap_addr) 0xE000ED04;
+
 // Systick: Cortex-M internal clock
 static const mmap_addr ADDR_SYSTICK_CSR = (mmap_addr) 0xE000E010;
 static const mmap_addr ADDR_SYSTICK_RVR = (mmap_addr) 0xE000E014;

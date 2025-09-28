@@ -39,8 +39,8 @@ vtable:
     .word svc_handler
     .word 0
     .word 0
-    .word pendsv_handler
-    .word systick_handler
+    .word os_context_switch_handler
+    .word os_tick_handler
     .word wwdg_irq_handler
     .word 0                                 
     .word rtc_irq_handler
@@ -83,12 +83,6 @@ vtable:
 
     .weak svc_handler
     .set svc_handler, default_interrupt_handler
-
-    .weak pendsv_handler
-    .set pendsv_handler, default_interrupt_handler
-
-    .weak systick_handler
-    .set systick_handler, default_interrupt_handler
 
     .weak wwdg_irq_handler
     .set wwdg_irq_handler, default_interrupt_handler
