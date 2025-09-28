@@ -96,4 +96,7 @@ Other than following the Vivonomicon tutorial, I'd also like to explore:
    Page.](https://www.st.com/en/microcontrollers-microprocessors/stm32f070rb.html)
  - [Meson Build System.](https://mesonbuild.com/)
  - [Renode.](https://renode.io/)
- - [NXP Application Note on Device Trees](https://www.nxp.com/docs/en/application-note/AN5125.pdf)
+ - [NXP Application Note on Device
+   Trees](https://www.nxp.com/docs/en/application-note/AN5125.pdf)
+ - [Adam Heinrich's post on context switching for the Cortex
+   M0](https://www.adamh.cz/blog/2016/07/context-switch-on-the-arm-cortex-m0/)
